@@ -34,7 +34,7 @@ public class SavedStandAdapter extends RecyclerView.Adapter<SavedStandAdapter.My
             super(view);
             titleTextView = (TextView) view.findViewById(R.id.title);
             imageView = (ImageView) view.findViewById(R.id.newsImage);
-            onClickListener = (Button)view.findViewById(R.id.onClickListener);
+            onClickListener = (Button) view.findViewById(R.id.onClickListener);
 
 
         }
@@ -62,13 +62,14 @@ public class SavedStandAdapter extends RecyclerView.Adapter<SavedStandAdapter.My
         holder.onClickListener.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(savedStand.getState().equals("ONLINE")){
+
+                //Online or Offline, should move to respective activities
+                if (savedStand.getState().equals("ONLINE")) {
                     Intent intent1 = new Intent(mContext, NewsScrollViewPager.class);
                     intent1.putExtra("position", String.valueOf(holder.getAdapterPosition()));
-                    intent1.putExtra("id",String.valueOf(savedStand.get_id()));
+                    intent1.putExtra("id", String.valueOf(savedStand.get_id()));
                     mContext.startActivity(intent1);
-                }
-                else if (savedStand.getState().equals("OFFLINE")){
+                } else if (savedStand.getState().equals("OFFLINE")) {
                     Intent intent1 = new Intent(mContext, SavedPager.class);
                     intent1.putExtra("position", String.valueOf(holder.getAdapterPosition()));
                     mContext.startActivity(intent1);

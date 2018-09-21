@@ -35,14 +35,16 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+        //checking connection
         final ConnectivityManager connectivityManager = ((ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE));
         connection = (connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnectedOrConnecting());
-        System.out.println("XXXXXX" + connection);
+
         newsList = new ArrayList<>();
         new GetTitles().execute();
 
     }
 
+    //API Request
     public class GetTitles extends AsyncTask<Void, Void, Void> {
         private static final String TAG = "SplashScreen";
 
@@ -85,8 +87,6 @@ public class SplashScreen extends AppCompatActivity {
                     }
 
 
-
-
                 } catch (final JSONException e) {
                     Log.e(TAG, "Json parsing error: " + e.getMessage());
                 }
@@ -104,12 +104,11 @@ public class SplashScreen extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if(connection) {
+                    if (connection) {
                         Intent intent = new Intent(SplashScreen.this, NewsStandActivity.class);
                         startActivity(intent);
                         finish();
-                    }
-                    else {
+                    } else {
                         Intent intent = new Intent(SplashScreen.this, SavedStandActivity.class);
                         startActivity(intent);
                         finish();

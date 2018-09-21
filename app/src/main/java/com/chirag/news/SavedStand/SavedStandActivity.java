@@ -27,6 +27,7 @@ public class SavedStandActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_stand);
 
+        //Database Instance
         newsDb = new DatabaseHelper(this);
 
         savedStandList = new ArrayList<>();
@@ -59,6 +60,7 @@ public class SavedStandActivity extends AppCompatActivity {
         if (!savedStandList.isEmpty())
             savedStandList.clear();
 
+        //Add saved list to an arraylist, fetch later
         while (res.moveToNext()){
             ArrayList<String> temp = new ArrayList<>();
             savedStandList.add(new SavedStand(res.getString(0), res.getString(1), res.getString(2), res.getString(3), "OFFLINE"));
@@ -68,8 +70,6 @@ public class SavedStandActivity extends AppCompatActivity {
             temp.add(res.getString(3));
             savedNewsList.add(temp);
         }
-
-        System.out.println("SSSSSSSS" + savedNewsList);
 
         savedStandAdapter = new SavedStandAdapter(SavedStandActivity.this, savedStandList);
         recyclerView.setAdapter(savedStandAdapter);

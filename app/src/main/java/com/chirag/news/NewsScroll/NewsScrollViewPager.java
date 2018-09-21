@@ -32,7 +32,6 @@ public class NewsScrollViewPager extends AppCompatActivity {
         if (bundle != null) {
             position = bundle.getString("position");
             news_id = bundle.getString("id");
-            System.out.println("PPPPPPPP" + news_id);
 
         }
 

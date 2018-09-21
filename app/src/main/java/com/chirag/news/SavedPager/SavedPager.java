@@ -23,8 +23,6 @@ public class SavedPager extends AppCompatActivity {
         Bundle bundle = mIntent.getExtras();
         if (bundle != null) {
             position = bundle.getString("position");
-            System.out.println("PPPPPPPP" + position);
-
         }
 
         currentposition = Integer.valueOf(position);
@@ -33,6 +31,6 @@ public class SavedPager extends AppCompatActivity {
         savedAdapter = new SavedAdapter(getSupportFragmentManager());
 
         mViewPager.setAdapter(savedAdapter);
-        mViewPager.setCurrentItem(currentposition,true);
+        mViewPager.setCurrentItem(currentposition, true);
     }
 }

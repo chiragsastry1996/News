@@ -27,9 +27,6 @@ import java.util.List;
 
 public class NewsStandAdapter extends RecyclerView.Adapter<NewsStandAdapter.MyViewHolder>{
 
-
-    private static final String TAG = NewsStandAdapter.class.getSimpleName();
-
     private Context mContext;
     List<NewsStand> newsStandList;
 

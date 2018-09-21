@@ -18,17 +18,17 @@ import com.chirag.news.SavedStand.SavedStandActivity;
 public class SavedFragment extends Fragment {
 
     View view;
-    TextView textView_title,textView_body;
+    TextView textView_title, textView_body;
     ImageView imageView;
     int position;
+
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.saved_fragment_layout, container, false);
-        imageView = (ImageView)view.findViewById(R.id.scroll_imageView);
-        textView_title=(TextView)view.findViewById(R.id.textView_title);
-        textView_body=(TextView)view.findViewById(R.id.textView_body);
-
+        imageView = (ImageView) view.findViewById(R.id.scroll_imageView);
+        textView_title = (TextView) view.findViewById(R.id.textView_title);
+        textView_body = (TextView) view.findViewById(R.id.textView_body);
 
 
         setUpFragmentData();

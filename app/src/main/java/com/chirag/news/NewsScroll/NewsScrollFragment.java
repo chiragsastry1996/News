@@ -2,30 +2,24 @@ package com.chirag.news.NewsScroll;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.chirag.news.Database.DatabaseHelper;
 import com.chirag.news.Database.HttpHandler;
-import com.chirag.news.NewsStand.NewsStand;
-import com.chirag.news.NewsStand.NewsStandActivity;
 import com.chirag.news.R;
 import com.chirag.news.SavedStand.SavedStandActivity;
 import com.chirag.news.Splashscreen.SplashScreen;
@@ -123,7 +117,6 @@ public class NewsScrollFragment extends Fragment {
 
                         JSONObject cards = news.getJSONObject(0);
                         content = cards.getString("content");
-                        System.out.println("YYYYYYY" + content);
 
                 } catch (final JSONException e) {
                     Log.e(TAG, "Json parsing error: " + e.getMessage());
